@@ -1,4 +1,6 @@
 function state = gitState(file)
+%GITSTATE git State of a file
+%
 % state = gitState(file)
 % Cases:
 %   state = ''           file is safely stashed in git repository

@@ -1,4 +1,6 @@
 function S = gitLib(file)
+%GITLIB Library information
+%
 %S = gitLib(file)
 %  returns a structure with information about the working folder
 %  containing file. If that folder is called lib the result is

@@ -1,8 +1,9 @@
 classdef gitInfo
-%gitInfo Essential Information on git tracked files
+%GITINFO Essential Information on git tracked files
 %
 % gi = gitInfo(file,[Nprevious])
-% 
+%
+%See also gitSha
 
   properties
     file
