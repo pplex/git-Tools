@@ -1,4 +1,4 @@
-function [sha,msg,date,dateRelative,nCommits,lib] = gitSha(file,previous,shaLength)
+function [sha,msg,date,dateRelative,nCommits,lib,pkg] = gitSha(file,previous,shaLength)
 %gitSha returns git repository information for a particular file
 % 
 %  sha = gitSha(file,[previous],[shaLength])
@@ -38,7 +38,14 @@ else
   end
 end
 
-[~,lib] = fileparts(pth);
+[pp,lib] = fileparts(pth);
+if lib(1)=='+'
+  pkg = lib;
+  [~,lib] = fileparts(pp);
+else
+  pkg = '';
+end
+  
 if isempty(pth)
   if nargout
     sha = '';
