@@ -68,8 +68,8 @@ end
 function [w,wpth] = findgit(wpth)
 w = fullfile(wpth,'.git');
 while ~exist(w,'dir') % search back up the directory tree for .git
-  [wpth,~] = fileparts(wpth);
-  if isempty(wpth) || regexpi(wpth,'[A-Z]:\')
+  [wpth,remain] = fileparts(wpth);
+  if isempty(wpth) || isempty(remain)
     w = '';
     return
   end

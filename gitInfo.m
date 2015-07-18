@@ -6,10 +6,12 @@ classdef gitInfo
 %See also gitSha
 
   properties
+    %fixme: if file is in a package, library should not be package name
     file
   end
   properties ( SetAccess = protected )
     library
+    package
     commitSha
     currentBranch
     currentState
@@ -47,9 +49,15 @@ classdef gitInfo
     g.file_ = file;
     g.currentState = gitState(file);
     if strcmpi(g.currentState,'untracked')
-      [~,g.library] = fileparts(fileparts(w));
+      [pp,lib] = fileparts(fileparts(w));
+      if lib(1) == '+'
+        [~,g.library] = fileparts(pp);
+        g.package = lib;
+      else
+        g.library = lib;
+      end
     else
-      [g.commitSha,g.message,g.date,g.inThePast,g.nCommits,g.library] = ...
+      [g.commitSha,g.message,g.date,g.inThePast,g.nCommits,g.library,g.package] = ...
                             gitSha(file,previous);
       g.currentBranch = branch(file);
       g.previous_ = previous;
