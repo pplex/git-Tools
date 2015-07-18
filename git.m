@@ -1,5 +1,5 @@
 function Res = git(cmd,varargin)
-%GIT implements git from the matlab command line
+%GIT Implements git from the matlab command line
 %
 % E.g.
 %   git init

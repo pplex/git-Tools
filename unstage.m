@@ -1,5 +1,5 @@
 function varargout = unstage(varargin)
-%UNSTAGE This removes files from the index (staged)
+%UNSTAGE Removes files from the index (staged)
 %
 % unstage(filespec)
 %

@@ -1,5 +1,5 @@
 function bout = branch(fn)
-% returns the git branch name where fn resides
+%BRANCH git branch name where fn resides
 % if no input provided it returns the branch for the current folder
 % this version assumes that fn is in a folder that also contains .git
 

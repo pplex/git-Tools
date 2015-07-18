@@ -1,8 +1,9 @@
 classdef gitInfo
-%gitInfo Essential Information on git tracked files
+%GITINFO Essential Information on git tracked files
 %
 % gi = gitInfo(file,[Nprevious])
-% 
+%
+%See also gitSha
 
   properties
     %fixme: if file is in a package, library should not be package name

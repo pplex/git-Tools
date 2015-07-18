@@ -1,5 +1,5 @@
 function [sha,msg,date,dateRelative,nCommits,lib,pkg] = gitSha(file,previous,shaLength)
-%gitSha returns git repository information for a particular file
+%GITSHA git repository information for a particular file
 % 
 %  sha = gitSha(file,[previous],[shaLength])
 %    assuming file is in a repository somewhere on the path the sha of
