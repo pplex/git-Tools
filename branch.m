@@ -5,6 +5,13 @@ function bout = branch(fn)
 
 if nargin
   wfn = which(fn);
+  if isempty(wfn)
+    fprintf('%s is not on the path\n',fn)
+    if nargout
+      bout = '';
+    end
+    return
+  end
   bn = 'built-in';
   if strfind(wfn,bn)
     if nargout
