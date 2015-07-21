@@ -13,6 +13,9 @@ function Res = git(cmd,varargin)
 %
 % See also unstage
 
+% Terry J. Brennan  7-11-2015
+% Copyright (c) 2013-2015 Prime Plexus LLC.
+
 if nargin<1
   cmd = 'help';
 end

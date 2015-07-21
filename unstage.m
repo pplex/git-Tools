@@ -12,6 +12,9 @@ function varargout = unstage(varargin)
 %
 % See also git
 
+% Terry J. Brennan  7-11-2015
+% Copyright (c) 2013-2015 Prime Plexus LLC.
+
 varargout = cell(1,nargout);
 [varargout{:}] = git('reset HEAD',varargin{:});
 

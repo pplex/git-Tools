@@ -6,6 +6,7 @@ function state = gitState(file)
 %   state = ''           file is safely stashed in git repository
 %   state = 'modified'   file has been modified since last commit
 %   state = 'untracked'  file is not being tracked by git
+%   state = 'unknown'    file is not on matlab path
 %
 % See also gitSha, gitInfo
 
@@ -18,6 +19,10 @@ end
 pwdsave = cd;
 try
   [fldr,fname,ext] = fileparts(which(file));
+  if isempty(fldr)
+    state = 'unknown';
+    return
+  end
   if isempty(ext)
     ext = '.m';
   end

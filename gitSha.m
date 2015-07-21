@@ -16,6 +16,9 @@ function [sha,msg,date,dateRelative,nCommits,lib,pkg] = gitSha(file,previous,sha
 %    if the second argument is a string containing 'HEAD' the current
 %    HEAD of the repository containing file will be returned
 
+% Terry J. Brennan  7-18-2015
+% Copyright (c) 2013-2015 Prime Plexus LLC.
+
 [pth,fname,ext] = fileparts(which(file));
 if nargin<3
   shaLength = 7;

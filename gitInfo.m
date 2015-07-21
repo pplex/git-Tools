@@ -5,6 +5,9 @@ classdef gitInfo
 %
 %See also gitSha
 
+% Terry J. Brennan  7-18-2015
+% Copyright (c) 2013-2015 Prime Plexus LLC.
+
   properties
     %fixme: if file is in a package, library should not be package name
     file

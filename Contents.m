@@ -9,3 +9,6 @@
 %   gitSha     - git repository information for a particular file
 %   gitState   - git State of a file
 %   unstage    - Removes files from the index (staged)
+
+% Terry J. Brennan  7-11-2015
+% Copyright (c) 2013-2015 Prime Plexus LLC.

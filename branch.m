@@ -3,6 +3,9 @@ function bout = branch(fn)
 % if no input provided it returns the branch for the current folder
 % this version assumes that fn is in a folder that also contains .git
 
+% Terry J. Brennan  7-18-2015
+% Copyright (c) 2013-2015 Prime Plexus LLC.
+
 if nargin
   wfn = which(fn);
   if isempty(wfn)
