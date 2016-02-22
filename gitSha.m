@@ -41,15 +41,9 @@ else
   end
 end
 
-[pp,lib] = fileparts(pth);
-if lib(1)=='+'
-  pkg = lib;
-  [~,lib] = fileparts(pp);
-else
-  pkg = '';
-end
+[lib,pkg] = libName(file);
   
-if isempty(pth)
+if isempty(lib)
   if nargout
     sha = '';
   else

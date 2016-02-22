@@ -4,21 +4,26 @@ function S = gitLib(file)
 %S = gitLib(file)
 %  returns a structure with information about the working folder
 %  containing file. If that folder is called lib the result is
-%  S.libBranch = name of current branch
-%  S.libHEAD   = current SHA
+%  S.library   = lib
+%  S.Branch    = name of current branch
+%  S.HEAD      = current SHA
 %  S.modified  = cell arry of modified files in lib
 %todo: S.untracked
 
 % Terry J. Brennan  5-25-2015
 % Copyright (c) 2013-2015 Prime Plexus LLC.
 
-pth = fileparts(which(file));
-[~,lib] = fileparts(pth);
+[lib,pkg,pth] = libName(file);
+if isempty(lib)
+  S = '';
+  return
+end
 pwdSave = cd;
 try
   cd(pth)
-  S.([lib 'Branch']) = branch;
-  S.([lib 'HEAD']) = gitSha(file,'HEAD');
+  S.library = lib;
+  S.Branch = branch;
+  S.HEAD = gitSha(file,'HEAD');
   X = git('status');
   str = 'modified:';
   ii = strfind(X,str);

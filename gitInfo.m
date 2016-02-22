@@ -45,20 +45,17 @@ classdef gitInfo
     if previous >= 0
       error('previous must be a negative integer')
     end
-    w = which(file);
-    if isempty(w)
+    [lib,pack] = libName(file);
+    if isempty(lib)
       error('%f is not on the matlab path',file)
     end
     g.file_ = file;
     g.currentState = gitState(file);
     if strcmpi(g.currentState,'untracked')
-      [pp,lib] = fileparts(fileparts(w));
-      if lib(1) == '+'
-        [~,g.library] = fileparts(pp);
-        g.package = lib;
-      else
-        g.library = lib;
+      if ~isempty(pack)
+        g.package = pack;
       end
+      g.library = lib;
     else
       [g.commitSha,g.message,g.date,g.inThePast,g.nCommits,g.library,g.package] = ...
                             gitSha(file,previous);
